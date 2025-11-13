@@ -1,9 +1,10 @@
-[ ] cycle   
-[ ] work   
+[X] cycle   
+[X] work   
 [ ] sleep  
-[ ] play 
-[ ] gohome  
-[ ] run 
-[ ] w a l k 
+[X] play 
+[X] gohome  
+[X] run 
+[X] w a l k 
 [X] walk 
 [ ] walk 10 km 
+[X] write with withlines 
