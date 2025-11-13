@@ -1,2 +1,6 @@
-[ ] buy milk 
-[ ] Workout 30 mins 
+[ ] cycle   
+[ ] work   
+[Done] sleep  
+[ ] play 
+[ ] gohome  
+[Done] run 
