@@ -21,26 +21,30 @@ def mark_done(task):
             task_text = " ".join(task)
             if task_text.isdigit():
                 i = int(task_text)
-                if i > len(lines):
+                if i > len(lines) or i < 1:
                     print("No task with the id ", i)
                     return
                 line = lines[i-1]
                 lines[i-1]=lines[i-1].replace("[ ]","[X]")
                 with open("task.txt","w") as w:
                     w.writelines(lines)
-                    print(f"marked {line[3:].strip()} as done")
-                return 
-            for i,line in enumerate(lines):
-                if task_text in line and "[ ]" in line:
-                    lines[i] = line.replace("[ ]","[X]")
                     found = True
-                    break
+                
+            else:
+                for i,line in enumerate(lines):
+                    if task_text in line and "[ ]" in line:
+                        lines[i] = line.replace("[ ]","[X]")
+                        found = True
+                        with open("task.txt","w") as f:
+                            f.writelines(lines)
+                        break
             if not found:
                 print("task not found or already Completed")
             else:
-                with open("task.txt","w") as f:
-                    f.writelines(lines)
-        print(f"{task} marked done")
+                if task[0].isdigit():
+                    print(f"{lines[i-1][3:].strip()} marked done")
+                else:
+                    print(f"{" ".join(task)} marked done")
     except FileNotFoundError:
         print("No task to be done!")
 import sys
