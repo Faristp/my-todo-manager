@@ -13,22 +13,26 @@ def list_task():
 def mark_done(task):
     try:
         with open("task.txt","r") as f:
-            para = f.read().split('\n')    
-            for i,p in enumerate(para):
-                if task[0] in p:
-                    print("task found")
-                    para[i]="[Done] "+task[0]
-        with open("task.txt","w") as f:
-            for i in range(len(para)-1):
-                f.write(f"{para[i]} \n")
-            f.write(f"{para[-1]}")
+            lines = f.readlines()
+            found = False
+            task_text = " ".join(task)
+            for i,line in enumerate(lines):
+                if task_text in line and "[ ]" in line:
+                    lines[i] = line.replace("[ ]","[X]")
+                    found = True
+                    break
+            if not found:
+                print("task not found or already Completed")
+            else:
+                with open("task.txt","w") as f:
+                    f.writelines(lines)
         print(f"{task} marked done")
     except FileNotFoundError:
         print("No task to be done!")
 import sys
 if len(sys.argv) > 1:
     if sys.argv[1] == "add":
-        add_task("".join(sys.argv[2:]))
+        add_task(" ".join(sys.argv[2:]))
     elif sys.argv[1]=="list":
         list_task()
     elif sys.argv[1] == "mark":

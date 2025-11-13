@@ -1,6 +1,9 @@
 [ ] cycle   
 [ ] work   
-[Done] sleep  
+[ ] sleep  
 [ ] play 
 [ ] gohome  
-[Done] run 
+[ ] run 
+[ ] w a l k 
+[X] walk 
+[ ] walk 10 km 
